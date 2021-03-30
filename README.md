@@ -23,3 +23,31 @@ Expected Output: 0
 Test: "It should not count numbers as words."
 Code: wordCounter("hi there 77 19);
 Expected Output: 2
+
+Test: " '0' as a word should not be counted"
+Code: wordCounter("hi there 0");
+Expected Output: 2
+
+Describe: numberOfOccurrencesInText()
+
+Test: "It should return 0 occurrences of a word for an empty string."
+Code:
+const text = "";
+const word = "red";
+wordCounter(word, text);
+Expected Output: 0
+
+
+Test: "It should return 1 occurrence of a word when the word and the text are the same."
+Code:
+const text = "red";
+const word = "red";
+wordCounter(word, text);
+Expected Output: 1
+
+Test: "It should return the number of occurrences of a word."
+Code:
+const text = "red blue red red red green";
+const word = "red";
+wordCounter(word, text);
+Expected Output: 4
