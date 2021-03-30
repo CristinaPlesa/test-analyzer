@@ -31,6 +31,39 @@ function numberOfOccurrencesInText(word, text) {
   return wordCount;
 }
 
+function mostCommonWords(text) {
+  if (text.trim().length === 0) {
+    return 0;
+  }
+  // convert text text into array
+  // for each in array, look through the array and count number there
+
+  const elements = text.split(" ");
+  const commonWords = [[], [], []];
+  elements.forEach(function (element) {
+    const numberOfOccurences = numberOfOccurrencesInText(element, text);
+    for(let i = 0; i < commonWords; i++) {
+      const commonWord = commonWords[i]
+      if (commonWord[0] === element) continue;
+      let placeHasBeenFound = false;
+      if (!commonWord[1]) {
+        commonWord[0] = element;
+        commonWord[1] = numberOfOccurences;
+        placeHasBeenFound = true;
+      }
+      if (!placeHasBeenFound) {
+        commonWords.forEach(function (commonWord) {
+          if (commonWord[0] < numberOfOccurences) {
+            commonWord[0] = element;
+            commonWord[0] = numberOfOccurences;
+          }
+        });
+      }
+    }
+  });
+  console.log(commonWords);
+}
+
 // ui logic
 
 function boldPassage(word, text) {
