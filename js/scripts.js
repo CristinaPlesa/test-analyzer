@@ -14,8 +14,13 @@ function wordCounter(text) {
 // business logic
 
 function numberOfOccurrencesInText(word, text) {
-  if (word === text) {
-    return 1;
-  }
-  return 0;
+  const wordArray = text.split(" ");
+  let wordCount = 0;
+  wordArray.forEach(function (element) {
+    if (element.toLowerCase().includes(word.toLowerCase())) {
+      wordCount++
+    }
+  })
+  return wordCount;
 }
+console.log(numberOfOccurrencesInText('red', 'red'))
